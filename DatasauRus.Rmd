@@ -1,0 +1,16 @@
+---
+title: "Datasaurus"
+output: html_notebook
+---
+
+# Packages
+
+```{r}
+library(tidyverse)
+library(datasauRus)
+```
+
+# References
+
+Description of the `datasauRus` package on
+[CRAN](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html).
