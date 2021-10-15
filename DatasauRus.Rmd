@@ -3,12 +3,32 @@ title: "Datasaurus"
 output: html_notebook
 ---
 
-# Packages
-
-```{r}
+```{r packages}
 library(tidyverse)
 library(datasauRus)
 ```
+
+# Exploratory Analysis
+
+```{r numerical summaries}
+datasaurus_dozen %>% 
+  group_by(dataset) %>% 
+  summarise(mean_x = mean(x),
+            var_x  = var(x),
+            mean_y = mean(y),
+            var_y  = var(y),
+            cor_xy = cor(x,y))
+```
+
+# Plot
+
+```{r plot, fig.height=10}
+datasaurus_dozen %>% 
+  ggplot(mapping = aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol = 3)
+```
+
 
 # References
 
