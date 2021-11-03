@@ -3,7 +3,7 @@ title: "Datasaurus"
 output: html_notebook
 ---
 
-```{r packages}
+```{r packages, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(datasauRus)
 ```
@@ -18,6 +18,24 @@ datasaurus_dozen %>%
             mean_y = mean(y),
             var_y  = var(y),
             cor_xy = cor(x,y))
+```
+
+# X density
+
+```{r plot, fig.height=10}
+datasaurus_dozen %>% 
+  ggplot(mapping = aes(x = x)) +
+  geom_density() +
+  facet_wrap(~dataset, ncol = 3)
+```
+
+# Y density
+                          
+```{r plot, fig.height=10}
+datasaurus_dozen %>% 
+  ggplot(mapping = aes(x = y)) +
+  geom_density() +
+  facet_wrap(~dataset, ncol = 3)
 ```
 
 # Plot
